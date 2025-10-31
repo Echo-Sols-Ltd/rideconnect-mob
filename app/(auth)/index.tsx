@@ -3,14 +3,23 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Platform } from "react-native";
 import { Colors } from "@/constants/theme";
 import { LinearGradient } from 'expo-linear-gradient'
+import { Link, useRouter } from "expo-router";
 const { height, width } = Dimensions.get('screen')
 
 export default function OnboardingScreen() {
+     const navigate = useRouter()
+
      const StartButton = () => {
           return (
-               <TouchableOpacity style={[styles.btn, { backgroundColor: Colors.primary}]}>
-                    <Text style={{ color: 'white', fontSize: 16, fontWeight: 500 }}>Start</Text>
-               </TouchableOpacity>
+               <>
+                    {Platform.OS === 'android' ? (
+                         <TouchableOpacity style={[styles.btn, { backgroundColor: Colors.primary }]} onPress={() => navigate.navigate('/(auth)/info')}>
+                              <Text style={{ fontSize: 18, fontWeight: 500, color: 'white' }}>Start</Text>
+                         </TouchableOpacity>
+                    ) : (
+                         <Link style={[styles.btn, { backgroundColor: Colors.primary, color: 'white' }]} href={'/(auth)/info'}>Start</Link>
+                    )}
+               </>
           )
      }
 
@@ -19,9 +28,12 @@ export default function OnboardingScreen() {
                <LinearGradient colors={[Colors.primary, Colors.secondary, Colors.default]} locations={[0, 0.8, 1]} style={[styles.container]}>
                     <Image source={require('@/assets/images/car.png')} style={{ resizeMode: 'contain', height: '50%' }} />
 
+                    
                     <View style={{ alignItems: 'center', gap: 30, justifyContent: 'center' }}>
                          <Text style={{ fontSize: 20, color: Colors.primary, fontWeight: 500 }}>R
-                              <Text style={{ color: 'white', borderBottomColor: 'white', borderBottomWidth: 2 }}>ideConnect</Text>
+                              <Text style={{ color: 'white' }}>ideC
+                                   <Text style={{ borderBottomColor: 'white', borderBottomWidth: 3 }}>onne</Text>
+                              ct</Text>
                          </Text>
 
                          <Text style={{ fontSize: 14, color: 'white', paddingHorizontal: 30, display: 'flex', flexDirection: 'column', textAlign: 'center', gap: 5 }}>
@@ -53,7 +65,10 @@ const styles = StyleSheet.create({
           borderColor: '#FFFFFF',
           height: 80,
           width: 80,
+          display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          fontSize: 16,
+          fontWeight: 500,
      }
 })

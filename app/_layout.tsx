@@ -6,16 +6,18 @@ import 'react-native-reanimated';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
 export const unstable_settings = {
-  anchor: '(tabs)',
+  // anchor: '(auth)',
+  anchor: '(drawer)',
 };
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
 
   return (
-      <Stack>
-        <Stack.Screen name='(auth)' options={{ headerShown: false }} />
-        <StatusBar style="auto" />
-      </Stack>
+    <Stack>
+      <Stack.Screen name='(auth)' options={{ headerShown: false }} />
+      <Stack.Screen name='(drawer)' options={{ headerShown: false }} />
+      <StatusBar style="auto" />
+    </Stack>
   );
 }
