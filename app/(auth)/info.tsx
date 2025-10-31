@@ -1,11 +1,14 @@
 import MainBtn from "@/components/mainbtn";
 import { Colors } from "@/constants/theme";
+import { useRouter } from "expo-router";
 import { Dimensions, Image, Platform, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const { height, width } = Dimensions.get('screen')
 
 export default function InfoScreen() {
+     const navigate = useRouter()
+
      return (
           <SafeAreaView style={[styles.container]}>
                <Image source={require('@/assets/images/truck.png')} resizeMode="contain" resizeMethod="resize" style={{ height: '60%', marginTop: 70, width: width > 500 ? '100%' : '60%' }} />
@@ -23,7 +26,7 @@ export default function InfoScreen() {
                          <Text>Premium Car Rides.Premium .</Text>
                     </Text>
 
-                    <MainBtn isprimary hasIcon isFullWidth />
+                    <MainBtn isprimary hasIcon isFullWidth onclick={() => navigate.replace('/(drawer)/home')} />
 
                     <Text style={{ fontSize: 14, color: Colors.tertiary, marginTop: 20, fontWeight: 500 }}>Already have an account?
                          <Text style={{ color: Colors.primary }}> Sign In</Text>
