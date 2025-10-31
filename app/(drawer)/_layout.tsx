@@ -4,24 +4,28 @@ import { Image, StyleSheet, Text, TouchableOpacity, Platform, SafeAreaView as Sa
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '@/constants/theme';
 import { View } from 'react-native';
+import { useResponsive } from '@/hooks/use-responsive';
 
 export default function DashboardLayout() {
+     const { fs, ms, isTablet } = useResponsive()
+     
      return (
-          <SafeAreaView style={{ flex: 1 }}>
+          <SafeAreaView style={{ flex: 1, backgroundColor: Colors.primary }}>
                <Drawer screenOptions={{
                     headerShown: true, header: (props) => {
                          return (
-                              <View style={[styles.container]}>
+                              <View style={[styles.container, { paddingHorizontal: ms(isTablet ? 40 : 20) }]}>
                                    <TouchableOpacity onPress={() => props.navigation.toggleDrawer()} >
-                                        {/* <Ionicons name=' size={20} color={'black'} /> */}
-                                        
+                                        <Ionicons name='stats-chart' size={fs(20)} color={'black'} style={{ transform: [{ rotate: '90deg' }] }} />
                                    </TouchableOpacity>
 
-                                   <Text>{props.route.name.toLocaleUpperCase()}</Text>
+                                   <Text style={{ fontSize: fs(16), fontWeight: 500 }}>{props.route.name.toLocaleUpperCase().toString()}</Text>
                                    
                                    <TouchableOpacity>
                                         {/* <Ionicons name='notifications' /> */}
-                                        <Image source={require("@/assets/images/person.png")} resizeMode='contain' style={[styles.profile, { borderColor: Colors.primary }]} />
+                                        <Image source={require("@/assets/images/person.png")} resizeMode='contain'
+                                             style={[styles.profile, { borderColor: Colors.primary, width: ms(isTablet ? 40 : 50), height: ms(isTablet ? 40 : 50) }]}
+                                        />
                                    </TouchableOpacity>
                               </View>
                          )
@@ -35,8 +39,6 @@ export default function DashboardLayout() {
 
 const styles = StyleSheet.create({
      profile: {
-          width: 50,
-          height: 50,
           borderRadius: 50,
           borderWidth: 2,
      },
@@ -44,7 +46,6 @@ const styles = StyleSheet.create({
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
-          paddingHorizontal: 30,
           paddingVertical: Platform.OS === 'android' ? 10 : 10,
           backgroundColor: 'white',
           height: Platform.OS === 'android' ? 'auto' : 'auto',
