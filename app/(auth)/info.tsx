@@ -1,17 +1,19 @@
 import MainBtn from "@/components/mainbtn";
 import { Colors } from "@/constants/theme";
+import { useResponsive } from "@/hooks/use-responsive";
 import { useRouter } from "expo-router";
 import { Dimensions, Image, Platform, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const { height, width } = Dimensions.get('screen')
+const { width } = Dimensions.get('screen')
 
 export default function InfoScreen() {
      const navigate = useRouter()
+     const { fs, ms, isTablet } = useResponsive()
 
      return (
           <SafeAreaView style={[styles.container]}>
-               <Image source={require('@/assets/images/truck.png')} resizeMode="contain" resizeMethod="resize" style={{ height: '60%', marginTop: 70, width: width > 500 ? '100%' : '60%' }} />
+               <Image source={require('@/assets/images/truck.png')} resizeMode="contain" resizeMethod="resize" style={{ height: isTablet ? '40%' : '60%', marginTop: 70, width: isTablet ? '60%' : '100%' }} />
 
                <View style={[styles.content]}>
                     <Text style={{ fontSize: 20, fontWeight: 500 }}>Your Ultimate <Text style={{ color: Colors.primary }}>Car rides</Text> </Text>

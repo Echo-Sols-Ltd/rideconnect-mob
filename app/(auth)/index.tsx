@@ -1,5 +1,4 @@
 import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { Platform } from "react-native";
 import { Colors } from "@/constants/theme";
 import { LinearGradient } from 'expo-linear-gradient'
@@ -24,7 +23,7 @@ export default function OnboardingScreen() {
      }
 
      return (
-          <SafeAreaView style={{ flex: 1, justifyContent: 'center', paddingVertical: 10 }}>
+          <View style={{ flex: 1, justifyContent: 'center', paddingVertical: 10 }}>
                <LinearGradient colors={[Colors.primary, Colors.secondary, Colors.default]} locations={[0, 0.8, 1]} style={[styles.container]}>
                     <Image source={require('@/assets/images/car.png')} style={{ resizeMode: 'contain', height: '50%' }} />
 
@@ -45,7 +44,7 @@ export default function OnboardingScreen() {
                     </View>
 
                </LinearGradient>
-          </SafeAreaView>
+          </View>
      )
 }
 

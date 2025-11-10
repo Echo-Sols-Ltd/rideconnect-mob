@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 import { Platform, useWindowDimensions } from "react-native";
 
-// Simple responsive helpers inspired by react-native-size-matters
 const guidelineBaseWidth = 375;
 const guidelineBaseHeight = 812;
 
