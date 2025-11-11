@@ -1,6 +1,6 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Drawer } from 'expo-router/drawer'
-import { Image, StyleSheet, Text, TouchableOpacity, Platform } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, Platform, useColorScheme } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '@/constants/theme';
 import { View } from 'react-native';
@@ -8,9 +8,10 @@ import { useResponsive } from '@/hooks/use-responsive';
 
 export default function DashboardLayout() {
      const { fs, ms, isTablet } = useResponsive()
+     const color = useColorScheme()
      
      return (
-          <SafeAreaView style={{ flex: 1, backgroundColor: Colors.background }}>
+          <SafeAreaView style={{ flex: 1, backgroundColor: color == 'light' ? Colors.background : Colors.default }}>
                <Drawer screenOptions={{ headerShown: false }}>
                     <Drawer.Screen name='home' options={{
                          headerShown: true,
