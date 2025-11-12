@@ -52,6 +52,12 @@ export default function useGlobalStyles() {
                backgroundColor: Colors.background,
                color: Colors.default,
                fontSize: fs(16)
+          },
+          centered: {
+               display: 'flex',
+               // flexDirection: 'row',
+               justifyContent: 'center',
+               alignItems: 'center',
           }
      })
 }

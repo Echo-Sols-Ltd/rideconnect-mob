@@ -9,7 +9,7 @@ import { ScrollView, Text } from "react-native";
 
 const { height, width } = Dimensions.get("window")
 
-export default function IocMainScreen() {
+export default function HotspotPredictionMainScreen() {
      const { fs, ms, isTablet } = useResponsive()
      const [searchPlace, setSearchPlace] = useState<string>('')
      const mainStyles = useGlobalStyles()
@@ -35,15 +35,15 @@ export default function IocMainScreen() {
                     <ScrollView>
                          <View style={[styles.nearbys, mainStyles.standardShadow, { paddingHorizontal: isTablet ? fs(20) : 0, paddingVertical: fs(10) }]}>
                               <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: 5, paddingHorizontal: 20 }}>
-                                   <View style={{ borderRightColor: `${Colors.primary}55`, borderRightWidth: 2, paddingRight: isTablet ? 40 : 10 }}>
+                                   <View style={[mainStyles.centered, { borderRightColor: `${Colors.primary}55`, borderRightWidth: 2, paddingRight: isTablet ? 40 : 7 }]}>
                                         <Text style={[mainStyles.additionalText]}>Price per hour</Text>
                                         <Text style={[mainStyles.normalText]}>1.25$</Text>
                                    </View>
-                                   <View style={{ borderRightColor: `${Colors.primary}55`, borderRightWidth: 2, paddingRight: isTablet ? 40 : 10 }}>
+                                   <View style={[mainStyles.centered, { borderRightColor: `${Colors.primary}55`, borderRightWidth: 2, paddingRight: isTablet ? 40 : 7 }]}>
                                         <Text style={[mainStyles.additionalText]}>Price per hour</Text>
                                         <Text style={[mainStyles.normalText]}>1.25$</Text>
                                    </View>
-                                   <View>
+                                   <View style={[mainStyles.centered]}>
                                         <Text style={[mainStyles.additionalText]}>Price per hour</Text>
                                         <Text style={[mainStyles.normalText]}>1.25$</Text>
                                    </View>
@@ -79,5 +79,5 @@ const styles = StyleSheet.create({
      },
      nearbys: {
           borderRadius: 3, elevation: 1,
-     }
+     },
 })

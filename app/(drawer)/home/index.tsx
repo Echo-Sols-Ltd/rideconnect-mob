@@ -3,12 +3,14 @@ import { Colors } from "@/constants/theme";
 import { businessData } from "@/data/ourBusiness";
 import { useResponsive } from "@/hooks/use-responsive";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { useRouter } from "expo-router";
 import { Platform, ScrollView } from "react-native";
 import { Image, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import { Shadow } from "react-native-shadow-2";
 
 export default function HomeScreen() {
      const { ms, isTablet, fs } = useResponsive();
+     const navigate = useRouter()
 
      const Decorations = (borderW: number, opacity: number, top: number, right: number, dimensions: number) => {
           return <View style={{
@@ -67,7 +69,7 @@ export default function HomeScreen() {
                          <TextInput placeholder="Ride date and time" style={{ fontSize: fs(12), width: '100%' }} placeholderTextColor={'#444a'} />
                     </View>
 
-                    <MainBtn title="Book" isprimary hasIcon />
+                    <MainBtn title="Book" isprimary hasIcon onclick={() => navigate.push("/(drawer)/ioc")} />
                </View>
           )
      }

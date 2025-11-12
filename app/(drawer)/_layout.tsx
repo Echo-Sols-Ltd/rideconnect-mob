@@ -69,7 +69,7 @@ export default function DashboardLayout() {
                               )
                          }
                     }} />
-                    <Drawer.Screen name='ioc' options={{
+                    <Drawer.Screen name='hotspot' options={{
                          headerShown: true,
                          header: (props) => {
                               return (
