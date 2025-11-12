@@ -95,7 +95,7 @@ export default function ParcelScreen() {
      }
 
      return (
-          <View style={{ gap: isTablet ? 30 : 10 }}>
+          <View style={{ gap: isTablet ? 30 : 10, backgroundColor: Colors.background, flex: 1 }}>
                <View style={[styles.container, { paddingHorizontal: isTablet ? ms(40) : 20 }]}>
                     <View style={{ backgroundColor: '#FFF5', paddingHorizontal: 10, borderRadius: 15, alignItems: 'center', flexDirection: 'row' }}>
                          <Ionicons name="search" size={22} color={'#FFF'} />

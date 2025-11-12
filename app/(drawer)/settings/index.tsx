@@ -1,3 +1,4 @@
+import { Colors } from "@/constants/theme";
 import { useResponsive } from "@/hooks/use-responsive";
 import useGlobalStyles from "@/hooks/use-styles-global";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -69,6 +70,7 @@ const styles = StyleSheet.create({
           flex: 1,
           paddingVertical: 30,
           gap: 10,
+          backgroundColor: Colors.background,
      },
      option: {
           paddingHorizontal: 10,
