@@ -5,10 +5,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '@/constants/theme';
 import { View } from 'react-native';
 import { useResponsive } from '@/hooks/use-responsive';
+import useGlobalStyles from '@/hooks/use-styles-global';
 
 export default function DashboardLayout() {
      const { fs, ms, isTablet } = useResponsive()
      const color = useColorScheme()
+     const mainStyles = useGlobalStyles()
      
      return (
           <SafeAreaView style={{ flex: 1, backgroundColor: color == 'light' ? Colors.background : Colors.default }}>
@@ -18,17 +20,15 @@ export default function DashboardLayout() {
                          header: (props) => {
                               return (
                                    <View style={[styles.container, { paddingHorizontal: ms(isTablet ? 40 : 20) }]}>
-                                        <TouchableOpacity onPress={() => props.navigation.toggleDrawer()} >
-                                             <Ionicons name='stats-chart' size={fs(20)} color={'black'} style={{ transform: [{ rotate: '90deg' }] }} />
+                                        <TouchableOpacity onPress={() => props.navigation.toggleDrawer()} style={[mainStyles.menuIcon]} >
+                                             <Ionicons name='stats-chart' size={isTablet ? fs(20) : fs(15)} color={'black'} style={{ transform: [{ rotate: '90deg' }] }} />
                                         </TouchableOpacity>
                     
-                                        <Text style={{ fontSize: fs(16), fontWeight: 500 }}>{props.route.name.toLocaleUpperCase().toString()}</Text>
-                                                       
-                                        <TouchableOpacity>
-                                             <Image source={require("@/assets/images/person.png")} resizeMode='contain'
-                                                  style={[styles.profile, { borderColor: Colors.primary, width: ms(isTablet ? 40 : 50), height: ms(isTablet ? 40 : 50) }]}
-                                             />
-                                        </TouchableOpacity>
+                                        <Text style={[mainStyles.normalText]}>{props.route.name.toLocaleUpperCase().toString()}</Text>
+
+                                        <Image source={require("@/assets/images/person.png")} resizeMode='contain'
+                                             style={[mainStyles.profileImageOrIcon]}
+                                        />
                                    </View>
                               )
                          } 
@@ -38,13 +38,13 @@ export default function DashboardLayout() {
                          header: (props) => {
                               return (
                                    <View style={[styles.container, { paddingHorizontal: ms(isTablet ? 40 : 20), backgroundColor: Colors.primary }]}>
-                                        <TouchableOpacity onPress={() => props.navigation.toggleDrawer()} style={[styles.menuBlue]} >
-                                             <Ionicons name='stats-chart' size={fs(20)} color={'black'} style={{ transform: [{ rotate: '90deg' }] }} />
+                                        <TouchableOpacity onPress={() => props.navigation.toggleDrawer()} style={[mainStyles.menuIcon]} >
+                                             <Ionicons name='stats-chart' size={isTablet ? fs(20) : fs(15)} color={'black'} style={{ transform: [{ rotate: '90deg' }] }} />
                                         </TouchableOpacity>
 
-                                        <Text style={{ fontSize: fs(16), fontWeight: 500, color: Colors.background }}>{props.route.name.toLocaleUpperCase().toString()}</Text>
+                                        <Text style={[mainStyles.normalText, { color: Colors.background }]}>{props.route.name.toLocaleUpperCase().toString()}</Text>
 
-                                        <Ionicons name='notifications' size={20} color={Colors.background} style={{
+                                        <Ionicons name='notifications' size={isTablet ? 20 : 15} color={Colors.background} style={{
                                              backgroundColor: `${Colors.background}22`, padding: 5, borderRadius: 10
                                         }} />
                                    </View>
@@ -56,13 +56,13 @@ export default function DashboardLayout() {
                          header: (props) => {
                               return (
                                    <View style={[styles.container, { paddingHorizontal: ms(isTablet ? 40 : 20), backgroundColor: Colors.primary }]}>
-                                        <TouchableOpacity onPress={() => props.navigation.toggleDrawer()} style={[styles.menuBlue]} >
-                                             <Ionicons name='stats-chart' size={fs(20)} color={'black'} style={{ transform: [{ rotate: '90deg' }] }} />
+                                        <TouchableOpacity onPress={() => props.navigation.toggleDrawer()} style={[mainStyles.menuIcon]} >
+                                             <Ionicons name='stats-chart' size={isTablet ? fs(20) : fs(15)} color={'black'} style={{ transform: [{ rotate: '90deg' }] }} />
                                         </TouchableOpacity>
 
-                                        <Text style={{ fontSize: fs(16), fontWeight: 500, color: Colors.background }}>{props.route.name.toLocaleUpperCase().toString()}</Text>
+                                        <Text style={[mainStyles.normalText, { color: Colors.background }]}>{props.route.name.toLocaleUpperCase().toString()}</Text>
 
-                                        <Ionicons name='notifications' size={20} color={Colors.background} style={{
+                                        <Ionicons name='notifications' size={isTablet ? 20 : 15} color={Colors.background} style={{
                                              backgroundColor: `${Colors.background}22`, padding: 5, borderRadius: 10
                                         }} />
                                    </View>
@@ -74,8 +74,8 @@ export default function DashboardLayout() {
                          header: (props) => {
                               return (
                                    <View style={[styles.container, { paddingHorizontal: ms(isTablet ? 40 : 20), backgroundColor: 'transparent' }]}>
-                                        <TouchableOpacity onPress={() => props.navigation.toggleDrawer()} style={[styles.menuBlue]} >
-                                             <Ionicons name='stats-chart' size={fs(20)} color={'black'} style={{ transform: [{ rotate: '90deg' }] }} />
+                                        <TouchableOpacity onPress={() => props.navigation.toggleDrawer()} style={[mainStyles.menuIcon]} >
+                                             <Ionicons name='stats-chart' size={isTablet ? fs(20) : fs(15)} color={'black'} style={{ transform: [{ rotate: '90deg' }] }} />
                                         </TouchableOpacity>
                                    </View>
                               )
@@ -87,10 +87,6 @@ export default function DashboardLayout() {
 }
 
 const styles = StyleSheet.create({
-     profile: {
-          borderRadius: 50,
-          borderWidth: 2,
-     },
      container: {
           flexDirection: 'row',
           justifyContent: 'space-between',
@@ -99,10 +95,4 @@ const styles = StyleSheet.create({
           backgroundColor: 'white',
           height: Platform.OS === 'android' ? 'auto' : 'auto',
      },
-     menuBlue: {
-          borderRadius: 50,
-          paddingHorizontal: 6,
-          paddingVertical: 6,
-          backgroundColor: Colors.background,
-     }
 })

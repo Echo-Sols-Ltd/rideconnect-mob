@@ -13,7 +13,7 @@ export default function InfoScreen() {
 
      return (
           <SafeAreaView style={[styles.container]}>
-               <Image source={require('@/assets/images/truck.png')} resizeMode="contain" resizeMethod="resize" style={{ height: isTablet ? '40%' : '60%', marginTop: 70, width: isTablet ? '60%' : '100%' }} />
+               <Image source={require('@/assets/images/truck.png')} resizeMode="contain" resizeMethod="resize" style={{ height: isTablet ? '40%' : '50%', marginTop: 70, width: isTablet ? '60%' : '100%' }} />
 
                <View style={[styles.content]}>
                     <Text style={{ fontSize: 20, fontWeight: 500 }}>Your Ultimate <Text style={{ color: Colors.primary }}>Car rides</Text> </Text>
