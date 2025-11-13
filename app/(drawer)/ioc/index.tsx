@@ -158,7 +158,7 @@ export default function BookARideMainScreen() {
                          </Pressable>
                     </View>
 
-                    <MainBtn hasIcon isprimary title="Book" onclick={() => navigate.push("/../sidePages/bookARideDetails")} />
+                    <MainBtn hasIcon isprimary title="Book" onclick={() => navigate.push("/sidePages/rideTracking")} />
                </View>
           </ScrollView>
      )
