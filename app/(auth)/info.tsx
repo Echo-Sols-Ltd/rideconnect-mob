@@ -28,9 +28,9 @@ export default function InfoScreen() {
                          <Text>Premium Car Rides.Premium .</Text>
                     </Text>
 
-                    <MainBtn isprimary hasIcon isFullWidth onclick={() => navigate.replace('/(drawer)/home')} />
+                    <MainBtn isprimary title="Start" hasIcon isFullWidth onclick={() => navigate.replace('/(auth)/signup')} />
 
-                    <Text style={{ fontSize: 14, color: Colors.tertiary, marginTop: 20, fontWeight: 500 }}>Already have an account?
+                    <Text style={{ fontSize: 14, color: Colors.tertiary, marginTop: 20, fontWeight: 500 }} onPress={() => navigate.replace('/(auth)/signin')}>Already have an account?
                          <Text style={{ color: Colors.primary }}> Sign In</Text>
                     </Text>
                </View>

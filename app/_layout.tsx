@@ -17,6 +17,7 @@ export default function RootLayout() {
     <Stack>
       <Stack.Screen name='(auth)' options={{ headerShown: false }} />
       <Stack.Screen name='(drawer)' options={{ headerShown: false }} />
+      <Stack.Screen name='sidePages' options={{ headerShown: false }} />
       <StatusBar style="auto" />
     </Stack>
   );

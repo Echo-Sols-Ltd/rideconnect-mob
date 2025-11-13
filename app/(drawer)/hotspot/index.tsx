@@ -168,10 +168,9 @@ export default function HotspotPredictionMainScreen() {
 
                <View style={[styles.search, { marginHorizontal: isTablet ? ms(40) : 20, paddingHorizontal: isTablet ? ms(20) : ms(10) }]}>
                     <Ionicons name="search" size={20} color={Colors.primary} />
-                    <TextInput style={[styles.searcgInputs, { width: isTablet ? '100%' : '90%' }]}
-                         placeholder="Where are you going?" placeholderTextColor={'#4448'}
-                         onFocus={handleFocus}
-                    />
+                    <Pressable onPress={handleFocus} style={[styles.searcgInputs, { width: isTablet ? '100%' : '90%' }]}>
+                         <Text style={[mainStyles.normalText, { color: '#4448' }]}>Where are you going?</Text>
+                    </Pressable>
                </View>
 
                <View style={{ position: 'absolute', right: isTablet ? ms(40) : 20, top: 0 }}>
@@ -305,6 +304,7 @@ const styles = StyleSheet.create({
           alignItems: 'center',
           position: 'absolute',
           top: '10%',
+          paddingVertical: 10
      },
      searcgInputs: {
           paddingHorizontal: 10,

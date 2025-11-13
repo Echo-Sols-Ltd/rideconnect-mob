@@ -28,6 +28,7 @@ export default function RideTrackingScreen() {
                         borderRadius: 15,
                         backgroundColor: Colors.background
                     }]}>
+                        <Ionicons name="close" size={24} color="black" onPress={() => setShowRideDetails(false)} style={{ alignSelf: 'flex-end' }} />
                         <Text style={[mainStyles.normalHeadings, { marginBottom: ms(15) }]}>
                             Ride Details
                         </Text>
@@ -145,7 +146,7 @@ export default function RideTrackingScreen() {
     };
 
     return (
-        <View style={{ flex: 1, backgroundColor: Colors.background }}>
+        <View style={{ flex: 1 }}>
             {/* Map Background */}
             <View style={styles.mapContainer}>
                 <Image 
@@ -169,7 +170,8 @@ export default function RideTrackingScreen() {
             <View style={[styles.bottomContent, { 
                 paddingHorizontal: isTablet ? ms(40) : ms(20),
                 paddingTop: ms(20),
-                paddingBottom: ms(30)
+                paddingBottom: ms(30),
+                backgroundColor: Colors.background
             }]}>
                 <DriverInfoCard />
                 <PricingInfo />
