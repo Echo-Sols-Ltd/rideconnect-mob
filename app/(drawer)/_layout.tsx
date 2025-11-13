@@ -93,6 +93,24 @@ export default function DashboardLayout() {
                               )
                          }
                     }} />
+                    <Drawer.Screen name='payments' options={{
+                         headerShown: true,
+                         header: (props) => {
+                              return (
+                                   <View style={[styles.container, { paddingHorizontal: ms(isTablet ? 40 : 20), backgroundColor: Colors.primary }]}>
+                                        <TouchableOpacity onPress={() => props.navigation.toggleDrawer()} style={[mainStyles.menuIcon]} >
+                                             <Ionicons name='stats-chart' size={isTablet ? fs(20) : fs(15)} color={'black'} style={{ transform: [{ rotate: '90deg' }] }} />
+                                        </TouchableOpacity>
+
+                                        <Text style={[mainStyles.normalText, { color: Colors.background }]}>{props.route.name.toLocaleUpperCase().toString()}</Text>
+
+                                        <Ionicons name='notifications' size={isTablet ? 20 : 15} color={Colors.background} style={{
+                                             backgroundColor: `${Colors.background}22`, padding: 5, borderRadius: 10
+                                        }} />
+                                   </View>
+                              )
+                         }
+                    }} />
                </Drawer>
           </SafeAreaView>
      );
