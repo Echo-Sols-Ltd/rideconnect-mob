@@ -74,7 +74,12 @@ export default function HotspotPredictionMainScreen() {
                                                   <Pressable style={{ borderRadius: 5, paddingHorizontal: 20, paddingVertical: 5, backgroundColor: `${Colors.primary}55` }}>
                                                        <Text style={{ fontSize: fs(13), color: Colors.primary }}>Request</Text>
                                                   </Pressable>
-                                                  <Ionicons name="call" size={20} color={Colors.primary} />
+                                                  <Pressable onPress={() => navigate.push({
+                                                       pathname: '/sidePages/calling',
+                                                       params: { name: 'Like Jenny', image: '' }
+                                                  })}>
+                                                       <Ionicons name="call" size={20} color={Colors.primary} />
+                                                  </Pressable>
                                              </View>
 
                                              <View style={{ justifyContent: 'center', marginTop: 18 }}>
@@ -124,7 +129,12 @@ export default function HotspotPredictionMainScreen() {
                                                   <Pressable style={{ borderRadius: 5, paddingHorizontal: 20, paddingVertical: 5, backgroundColor: `${Colors.primary}55` }}>
                                                        <Text style={{ fontSize: fs(13), color: Colors.primary }}>Request</Text>
                                                   </Pressable>
-                                                  <Ionicons name="call" size={20} color={Colors.primary} />
+                                                  <Pressable onPress={() => navigate.push({
+                                                       pathname: '/sidePages/calling',
+                                                       params: { name: 'Like Jenny', image: '' }
+                                                  })}>
+                                                       <Ionicons name="call" size={20} color={Colors.primary} />
+                                                  </Pressable>
                                              </View>
 
                                              <View style={{ justifyContent: 'center', marginTop: 18 }}>
@@ -200,7 +210,10 @@ export default function HotspotPredictionMainScreen() {
                                              <Pressable style={{ borderRadius: 5, paddingHorizontal: 20, paddingVertical: 5, backgroundColor: `${Colors.primary}55` }}>
                                                   <Text style={{ fontSize: fs(13), color: Colors.primary }}>Request</Text>
                                              </Pressable>
-                                             <Ionicons name="call" size={20} color={Colors.primary} />
+                                             <Ionicons name="call" size={20} color={Colors.primary} onPress={() => navigate.push({
+                                                  pathname: '/sidePages/calling',
+                                                  params: { name: 'Like Jenny', image: '' }
+                                             })} />
                                         </View>
 
                                         <View style={{ justifyContent: 'center', marginTop: 18 }}>
@@ -250,7 +263,10 @@ export default function HotspotPredictionMainScreen() {
                                              <Pressable style={{ borderRadius: 5, paddingHorizontal: 20, paddingVertical: 5, backgroundColor: `${Colors.primary}55` }}>
                                                   <Text style={{ fontSize: fs(13), color: Colors.primary }}>Request</Text>
                                              </Pressable>
-                                             <Ionicons name="call" size={20} color={Colors.primary} />
+                                             <Ionicons name="call" size={20} color={Colors.primary} onPress={() => navigate.push({
+                                                  pathname: '/sidePages/calling',
+                                                  params: { name: 'Like Jenny', image: '' }
+                                             })} />
                                         </View>
 
                                         <View style={{ justifyContent: 'center', marginTop: 18 }}>

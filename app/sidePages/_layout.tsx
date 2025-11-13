@@ -24,6 +24,30 @@ export default function SidePagesLayout() {
                          )
                     }
                }} />
+               <Stack.Screen name="receipt" options={({ navigation }) => ({
+                    headerShown: true,
+                    title: "Receipt for ride A1",
+                    headerTitleAlign: 'center',
+                    headerLeft: () => (
+                         <TouchableOpacity 
+                              onPress={() => navigation.goBack()}
+                              style={{ marginLeft: isTablet ? ms(20) : 10 }}
+                         >
+                              <Ionicons name="arrow-back" size={20} color={Colors.default} />
+                         </TouchableOpacity>
+                    ),
+                    headerStyle: {
+                         backgroundColor: Colors.background,
+                    },
+                    headerTitleStyle: {
+                         fontSize: fs(16),
+                         fontWeight: '500',
+                         color: Colors.default,
+                    },
+               })} />
+               <Stack.Screen name="calling" options={{
+                    headerShown: false
+               }} />
           </Stack>
      )
 }

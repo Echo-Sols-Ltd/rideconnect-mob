@@ -84,7 +84,13 @@ export default function RideTrackingScreen() {
                     </View>
 
                     <View style={{ flexDirection: 'row', gap: ms(10) }}>
-                        <Pressable style={[styles.actionButton, { backgroundColor: `${Colors.primary}20` }]}>
+                        <Pressable 
+                            style={[styles.actionButton, { backgroundColor: `${Colors.primary}20` }]}
+                            onPress={() => router.push({
+                                pathname: '/sidePages/calling',
+                                params: { name: 'Like Jenny', image: '' }
+                            })}
+                        >
                             <Ionicons name="call" size={20} color={Colors.primary} />
                         </Pressable>
                         <Pressable style={[styles.actionButton, { backgroundColor: `${Colors.primary}20` }]}>
@@ -176,11 +182,14 @@ export default function RideTrackingScreen() {
                 <DriverInfoCard />
                 <PricingInfo />
                 
-                <Pressable style={[styles.viewReceiptButton, { 
-                    backgroundColor: `${Colors.primary}20`,
-                    paddingVertical: ms(12),
-                    borderRadius: 25
-                }]}>
+                <Pressable 
+                    style={[styles.viewReceiptButton, { 
+                        backgroundColor: `${Colors.primary}20`,
+                        paddingVertical: ms(12),
+                        borderRadius: 25
+                    }]}
+                    onPress={() => router.push('/sidePages/receipt')}
+                >
                     <Text style={[mainStyles.normalText, { 
                         color: Colors.primary, 
                         textAlign: 'center',
