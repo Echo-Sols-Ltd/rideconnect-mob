@@ -3,6 +3,7 @@ import { Colors } from "@/constants/theme";
 import { useResponsive } from "@/hooks/use-responsive";
 import useGlobalStyles from "@/hooks/use-styles-global";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { useRouter } from "expo-router";
 import { useState } from "react";
 import { Dimensions, Image, Pressable, StyleSheet, TextInput, View, Text, ScrollView, Animated } from "react-native";
 
@@ -14,7 +15,8 @@ export default function HotspotPredictionMainScreen() {
      const [searchStop, setSearchStop] = useState<string>('')
      const [isSearchFocused, setIsSearchFocused] = useState(false);
      const mainStyles = useGlobalStyles()
-     const slideAnim = new Animated.Value(0);
+     const slideAnim = new Animated.Value(height);
+     const navigate = useRouter()
 
      const handleFocus = () => {
           setIsSearchFocused(true);
@@ -173,7 +175,7 @@ export default function HotspotPredictionMainScreen() {
                </View>
 
                <View style={{ position: 'absolute', right: isTablet ? ms(40) : 20, top: 0 }}>
-                    <MainBtn isprimary title="Post a Ride" />
+                    <MainBtn isprimary title="Post a Ride" onclick={() => navigate.push("/(drawer)/ioc")} />
                </View>
 
                <View style={{ paddingHorizontal: isTablet ? ms(40) : 20, backgroundColor: 'white', paddingVertical: 30 }}>
@@ -281,8 +283,8 @@ export default function HotspotPredictionMainScreen() {
                          </View>
                     </View>
                </View>
-               {<ReceiptScreen />}
-               {/* {isSearchFocused && <ReceiptScreen />} */}
+               {/* {<ReceiptScreen />} */}
+               {isSearchFocused && <ReceiptScreen />}
           </ScrollView>
      )
 }
