@@ -69,7 +69,7 @@ export default function HomeScreen() {
                          <TextInput placeholder="Ride date and time" style={{ fontSize: fs(12), width: '100%' }} placeholderTextColor={'#444a'} />
                     </View>
 
-                    <MainBtn title="Book" isprimary hasIcon onclick={() => navigate.push("/(drawer)/ioc")} />
+                    <MainBtn title="Book" isprimary hasIcon onclick={() => navigate.push("/(drawer)/hotspot")} />
                </View>
           )
      }

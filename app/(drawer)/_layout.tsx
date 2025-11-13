@@ -81,6 +81,18 @@ export default function DashboardLayout() {
                               )
                          }
                     }} />
+                    <Drawer.Screen name='ioc' options={{
+                         headerShown: true,
+                         header: (props) => {
+                              return (
+                                   <View style={[styles.container, { paddingHorizontal: ms(isTablet ? 40 : 20), backgroundColor: 'transparent', paddingVertical: isTablet ? ms(20) : 5 }]}>
+                                        <TouchableOpacity onPress={() => props.navigation.toggleDrawer()} style={[mainStyles.menuIcon]} >
+                                             <Ionicons name='stats-chart' size={isTablet ? fs(20) : fs(15)} color={'black'} style={{ transform: [{ rotate: '90deg' }] }} />
+                                        </TouchableOpacity>
+                                   </View>
+                              )
+                         }
+                    }} />
                </Drawer>
           </SafeAreaView>
      );
