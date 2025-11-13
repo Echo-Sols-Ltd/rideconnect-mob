@@ -6,6 +6,7 @@ import { Colors } from '@/constants/theme';
 import { View } from 'react-native';
 import { useResponsive } from '@/hooks/use-responsive';
 import useGlobalStyles from '@/hooks/use-styles-global';
+import CustomDrawer from '@/components/CustomDrawer';
 
 export default function DashboardLayout() {
      const { fs, ms, isTablet } = useResponsive()
@@ -14,7 +15,10 @@ export default function DashboardLayout() {
      
      return (
           <SafeAreaView style={{ flex: 1, backgroundColor: color == 'light' ? Colors.background : Colors.default }}>
-               <Drawer screenOptions={{ headerShown: false }}>
+               <Drawer 
+                    screenOptions={{ headerShown: false }}
+                    drawerContent={(props) => <CustomDrawer {...props} />}
+               >
                     <Drawer.Screen name='home' options={{
                          headerShown: true,
                          header: (props) => {
