@@ -19,6 +19,9 @@ export default function SidePagesLayout() {
                          )
                     }
                }} />
+               <Stack.Screen name="rideTracking" options={{
+                    headerShown: false
+               }} />
           </Stack>
      )
 }
